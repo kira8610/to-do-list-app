@@ -3,10 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-do List</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="h-screen flex items-start justify-center bg-gray-100 font-nunito">
+    <main class="p-6 m-6 w-full max-w-7xl bg-white rounded-lg shadow-lg space-y-4 text-2xl text-center ">
+
+        <h1 class="font-bold text-5xl mb-6">TO-DO LIST</h1>
+
+        <!-- Section for adding tasks -->
+        <div class="bg-purple-100 rounded-lg m-6 p-6 space-y-4">
+            <h2 class="uppercase font-bold">Add Tasks</h2>
+
+            
+            <form id="addTaskForm">
+                <div class="grid grid-cols-10 gap-6 mb-4 items-center">
+                    <label for="taskInput" class="col-span-3 rounded-lg bg-purple-400 text-white font-bold p-2">Task</label>
+                    <label for="deadlineInput" class="col-span-3 rounded-lg bg-purple-400 text-white font-bold p-2">Deadline</label>
+                    <label for="priorityInput" class="col-span-2 rounded-lg bg-purple-400 text-white font-bold p-2">Priority</label>
+                </div>
+
+                <div class="grid grid-cols-10 gap-6">
+                    <input type="text" id="taskInput" placeholder="Enter a task" class="col-span-3 rounded-lg pl-2">
+                    <input type="date" id="deadlineInput" class="col-span-3 rounded-lg pl-2">
+                    <select id="priorityInput" class="col-span-2 rounded-lg pl-2">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <button type="submit" class="col-span-2 rounded-lg bg-purple-400 text-white font-bold p-2">+</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Section to display tasks -->
+        <div class="bg-purple-100 rounded-lg m-6 p-6 space-y-4">
+            <h2 class="uppercase font-bold">My Tasks</h2>
+
+            <div id="taskHeader" class="grid grid-cols-10 gap-6">
+                <p class="col-span-1"></p>
+                <p class="col-span-3 rounded-lg bg-purple-400 text-white font-bold p-2">Task</p>
+                <p class="col-span-3 rounded-lg bg-purple-400 text-white font-bold p-2">Deadline</p>
+                <p class="col-span-2 rounded-lg bg-purple-400 text-white font-bold p-2">Priority</p>
+                <p class="col-span-1"></p>
+            </div>
+
+            <div id="taskList"></div>  <!-- Container for the added tasks. It should remain a block element instead of a grid. Otherwise, it'll conflict with the grid layout of taskRow -->
+            
+        </div>
+    </main>
+
     <script src="index.js"></script>
 </body>
 </html>
